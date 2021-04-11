@@ -3,7 +3,7 @@ services:
   db:
     image: mysql:8.0
     ports:
-      - "33081:3306"
+      - "3305:3306"
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_ROOT_PASSWORD: rootp
@@ -12,7 +12,7 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
-      - "96:80"
+      - "8070:80"
     depends_on:
       - db
   app:
@@ -26,7 +26,7 @@ services:
       - APACHE_RUN_USER=#${UID}
       - APACHE_RUN_GROUP=#${UID}
     ports:
-      - "86:80"
+      - "8060:80"
       - "444:443"
     volumes:
       - .:/var/www/html
