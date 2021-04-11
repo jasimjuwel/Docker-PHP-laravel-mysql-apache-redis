@@ -17,7 +17,7 @@
 
 ## Basic Laravel and NPM command
 
-- docker exec -ti -u duser pureit_app_1 bash
+- docker exec -ti -u duser docker_app_1(container name) bash
 - npm install
 - npm run watch
 - php artisan config:clear
@@ -26,14 +26,14 @@
 - php artisan migrate
 ## Configure mySql
 
-- docker exec -ti pureit_db_1 bash
+- docker exec -ti docker_db_1(container name) bash
 - mysql -u root -p
 - ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
 - docker inspect 3d226681d8d2(container id)
 
 ## Docker compose
 - docker-compose up --build
-- docker exec -ti -u duser laravel-docker_app_1 bash
+- docker exec -ti -u duser laravel-docker_app_1(container name) bash
 
 - docker-compose down -v
 - docker-compose up --build -d
