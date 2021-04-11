@@ -29,7 +29,7 @@
 - docker exec -ti pureit_db_1 bash
 - mysql -u root -p
 - ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
-- docker inspect 3d226681d8d2
+- docker inspect 3d226681d8d2(container id)
 
 ## Docker compose
 - docker-compose up --build
