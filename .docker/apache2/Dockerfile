@@ -9,7 +9,6 @@ RUN mkdir -p /home/duser/.composer && \
 
 RUN apt-get update --fix-missing -q
 
-#RUN apt-get update -y && apt-get install -y openssl mcrypt zip unzip git libonig-dev nodejs npm
 RUN apt-get install -y openssl zip unzip git libonig-dev  libxml2-dev libpng-dev libjpeg-dev libfreetype6-dev libonig-dev curl mcrypt gnupg build-essential software-properties-common wget vim libwebp-dev
 RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
 RUN apt-get -y install nodejs

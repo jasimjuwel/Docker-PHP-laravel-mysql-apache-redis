@@ -1,48 +1,40 @@
-
 ## Docker Instruction:
-*  `Set UID in .env`
+*  `Set UID and APP_NAME in .env`
+   APP_NAME=testapp
+   UID=1000
 
-        UID=1000
-
-
-## Ports
-- php 8060
-- mysql 3305
-- phpmyadmin 8070
-
-## Folder Permission
-
-- chmod -R 775 storage
-- chmod 755 storage bootstrap/cache
+## Docker compose
+- docker-compose up --build
+- docker-compose up --build -d
+- docker-compose down -v
 
 ## Basic Laravel and NPM command
-
-- docker exec -ti -u duser docker_app_1(container name) bash
-- npm install
-- npm run watch
+- docker exec -ti -u duser testapp-app bash
+- chmod -R 775 storage
+- chmod 755 storage bootstrap/cache
 - php artisan config:clear
 - php artisan cache:clear
 - php artisan cache:clear
 - php artisan migrate
+
 ## Configure mySql
+- docker exec -ti testapp-db bash
+- mysql -u root -p root
 
-- docker exec -ti docker_db_1(container name) bash
-- mysql -u root -p
-- ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
-- docker inspect 3d226681d8d2(container id)
+## Configure redis
+- `docker exec -ti testapp-redis  /bin/sh`
+- `redis-cli`
+- `ping`
 
-## Docker compose
-- docker-compose up --build
-- docker exec -ti -u duser laravel-docker_app_1(container name) bash
-
-- docker-compose down -v
-- docker-compose up --build -d
-- docker-compose exec app php artisan config:cache
-- docker-compose exec app ls -l
-
+## virtual domain adding
+- edit `vim /etc/hosts`
+- then add this line `149.23.0.4 testapp.dev` for browsing using domain name
+-
 ## Run app
-- http://localhost:8060/
+- http://149.23.0.4/
+- http://testapp.dev/
 
-## Note:
+## Run phpmyadmin
+- http://149.23.0.3
 
-I tried to follow the best practices, but any suggestion, modification is highly appreciated.
+## notes
