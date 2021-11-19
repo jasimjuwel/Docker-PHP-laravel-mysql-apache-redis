@@ -1,7 +1,42 @@
+## About Project
+
+Dockerize PHP Apache Laravel Mysql Redis 
+
+## Technologies
+- PHP 7.2.5
+- Laravel 7
+- Mysql 8
+- Docker
+- Redis
+
 ## Docker Instruction:
-*  `Set UID and APP_NAME in .env`
-   APP_NAME=testapp
-   UID=1000
+
+* Docker is available in this project. Please install Docker before start. Click [here](https://www.docker.com/) to know about Docker. For installation guide please follow [this](https://www.docker.com/get-started) link.*
+
+## Clone the docker files
+- git clone https://github.dev/jasimjuwel/Docker-PHP-laravel-mysql-apache.git
+- put this docker files into laravel project
+- cp .env.example .env
+## Configure .env
+    >  vim .env
+
+        APP_NAME=testapp
+        DB_CONNECTION=mysql
+        DB_HOST=149.23.0.2
+        DB_PORT=3306
+        DB_DATABASE=test_app_db
+        DB_USERNAME=testapp_user
+        DB_PASSWORD=123456
+        TZ=Asia/Dhaka
+- 
+        CACHE_DRIVER=redis
+- 
+        REDIS_CLIENT=predis
+        REDIS_HOST=149.23.0.5
+        REDIS_PASSWORD=null
+        REDIS_PORT=6379
+- 
+        UID=1000
 
 ## Docker compose
 - docker-compose up --build
@@ -16,6 +51,7 @@
 - php artisan cache:clear
 - php artisan cache:clear
 - php artisan migrate
+- npm install
 
 ## Configure mySql
 - docker exec -ti testapp-db bash
@@ -38,3 +74,4 @@
 - http://149.23.0.3
 
 ## notes
+- Feel free inform me for any help. email : jasimjuwel0@gmail.com
